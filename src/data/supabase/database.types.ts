@@ -305,6 +305,10 @@ export interface Database {
           // {"kind": "winner_of", "match_id": "...", "label": "Ganador C1"}
           home_source: Json | null
           away_source: Json | null
+          // Added by 0002_match_condition.sql. Non-null only when the match is
+          // played in some outcomes and not others — currently just the
+          // double-elimination grand-final decider.
+          condition: Json | null
           court_id: string | null
           scheduled_at: string | null
           status: MatchStatus
@@ -327,6 +331,7 @@ export interface Database {
           away_participant_id?: string | null
           home_source?: Json | null
           away_source?: Json | null
+          condition?: Json | null
           court_id?: string | null
           scheduled_at?: string | null
           status?: MatchStatus
