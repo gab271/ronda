@@ -1,0 +1,80 @@
+/**
+ * Component tokens (LAYER 3). Every value resolves through the semantic layer —
+ * no colour literals here, enforced by stylelint.
+ */
+
+.button {
+  --btn-bg: var(--color-brand);
+  --btn-fg: var(--color-brand-contrast);
+  --btn-border: var(--color-brand);
+
+  display: inline-flex;
+  gap: var(--space-2);
+  align-items: center;
+  justify-content: center;
+
+  /* Touch target floor: thumbs, sunlight, and people standing on a court. */
+  min-height: var(--tap-min);
+  padding-inline: var(--space-5);
+
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  font-variation-settings: 'wdth' var(--width-normal);
+  color: var(--btn-fg);
+  text-decoration: none;
+
+  cursor: pointer;
+  background-color: var(--btn-bg);
+
+  /* Court-line border: the shared structural device, never a hairline. */
+  border: var(--line-thin) solid var(--btn-border);
+  border-radius: var(--radius-2);
+
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.button:hover:not(:disabled) {
+  background-color: var(--color-brand-strong);
+  border-color: var(--color-brand-strong);
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* Secondary: the court-line inversion — white field, blue markings. */
+.button[data-variant='secondary'] {
+  --btn-bg: transparent;
+  --btn-fg: var(--color-brand);
+  --btn-border: var(--color-brand);
+}
+
+.button[data-variant='secondary']:hover:not(:disabled) {
+  background-color: var(--color-brand-soft);
+  border-color: var(--color-brand);
+}
+
+.button[data-variant='ghost'] {
+  --btn-bg: transparent;
+  --btn-fg: var(--color-text);
+  --btn-border: transparent;
+
+  padding-inline: var(--space-3);
+}
+
+.button[data-variant='ghost']:hover:not(:disabled) {
+  background-color: var(--color-surface-sunken);
+  border-color: transparent;
+}
+
+.button[data-full='true'] {
+  width: 100%;
+}

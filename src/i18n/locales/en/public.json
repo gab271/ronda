@@ -1,0 +1,25 @@
+{
+  "notFound": {
+    "title": "This tournament doesn't exist",
+    "body": "The link may have been copied incorrectly, or the tournament isn't published yet. Ask the organiser to send it again."
+  },
+  "offline": {
+    "title": "No connection",
+    "body": "We couldn't load the tournament. Check your connection and try again.",
+    "action": "Try again"
+  },
+  "serverError": {
+    "title": "The tournament couldn't be loaded",
+    "body": "The server failed, not your connection. Try again in a few seconds."
+  },
+  "loading": "Loading the tournament…",
+  "status": {
+    "live": "Live",
+    "finished": "Finished",
+    "pending": "Upcoming"
+  },
+  "placeholder": {
+    "title": "The draw goes here",
+    "body": "This public page is built in milestone 4."
+  }
+}

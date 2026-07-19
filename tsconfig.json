@@ -1,0 +1,52 @@
+{
+  // Main app config. Editors pick this up by default.
+  //
+  // These options deliberately mirror TypeScript 7's new defaults even though we
+  // are pinned to 6.0.3 (see README: typescript-eslint does not support TS 7 yet).
+  // Writing them explicitly now means the eventual 7.1 upgrade is a version bump
+  // rather than a code migration.
+  "compilerOptions": {
+    "target": "es2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+
+    // TS 7 defaults `types` to [] rather than "every @types package". Being
+    // explicit avoids ambient types leaking in, and without "vite/client" the
+    // `*.module.css` and `import.meta.env` declarations do not resolve at all.
+    "types": ["vite/client"],
+
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "exactOptionalPropertyTypes": true,
+
+    // `verbatimModuleSyntax` forces `import type` for type-only imports, which is
+    // what lets Oxc strip types without whole-program knowledge.
+    // `erasableSyntaxOnly` bans enum/namespace/parameter-properties — syntax that
+    // cannot be erased by a transpiler. Both align with Vite 8's Oxc pipeline.
+    "verbatimModuleSyntax": true,
+    "erasableSyntaxOnly": true,
+    "isolatedModules": true,
+
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": false,
+    "skipLibCheck": true,
+    "noEmit": true,
+
+    // No `baseUrl` — removed in TS 7. `paths` entries are resolved relative to
+    // this file instead.
+    "paths": {
+      "~/*": ["./src/*"]
+    }
+  },
+  "include": ["src"],
+  // Tests are checked by tsconfig.test.json instead, which additionally supplies
+  // Node types. Keeping them out of here is what stops application code from
+  // quietly type-checking against `node:fs` and friends.
+  "exclude": ["src/**/*.test.ts", "src/**/*.test.tsx", "src/test/**"]
+}

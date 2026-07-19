@@ -1,0 +1,71 @@
+/**
+ * The shared shape for loading, empty and error states.
+ *
+ * Having one component for all three is deliberate: it is how the app keeps a
+ * consistent voice across every failure, and it makes an unstyled or missing
+ * state obvious during review rather than shipping as a blank screen.
+ */
+
+.status {
+  --status-accent: var(--color-border-strong);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: flex-start;
+
+  padding: var(--space-5);
+
+  background-color: var(--color-surface);
+  border: var(--line-thin) solid var(--color-border);
+
+  /* The accent edge is the court-line device again: a heavy left rule whose
+     colour states the kind of message. */
+  border-left: var(--line-heavy) solid var(--status-accent);
+  border-radius: var(--radius-2);
+}
+
+.status[data-tone='error'] {
+  --status-accent: var(--color-negative);
+}
+
+.status[data-tone='empty'] {
+  --status-accent: var(--color-brand);
+}
+
+.status[data-tone='loading'] {
+  --status-accent: var(--color-accent);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  font-variation-settings: 'wdth' var(--width-expanded);
+  line-height: var(--leading-snug);
+  color: var(--color-text);
+}
+
+.body {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  font-weight: var(--weight-medium);
+  max-width: 52ch;
+}
+
+/* Spinner. Reduced-motion is handled globally in reset.css, which collapses the
+   animation duration — so this degrades to a static ring rather than vanishing. */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: var(--line-thin) solid var(--color-border);
+  border-top-color: var(--color-accent);
+  border-radius: var(--radius-pill);
+  animation: spin 700ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

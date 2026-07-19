@@ -1,0 +1,118 @@
+{
+  "nav": {
+    "signIn": "Sign in",
+    "create": "Create tournament",
+    "skipToContent": "Skip to content"
+  },
+  "hero": {
+    "eyebrow": "Padel · 7-a-side · Basketball · Chess",
+    "title": "The draw makes itself",
+    "lead": "Add the pairs, pick a format, and Cuadro generates every match. Share one link and each player sees when they play, against whom, and on which court.",
+    "primary": "Create a tournament",
+    "secondary": "See an example tournament",
+    "note": "Free for one active tournament. Your players never need an account."
+  },
+  "draw": {
+    "caption": "A real 8-pair draw. Results come in and the bracket updates itself.",
+    "pending": "Winner of M{{index}}",
+    "live": "Live",
+    "champion": "Champion"
+  },
+  "before": {
+    "eyebrow": "Right now",
+    "title": "A WhatsApp group and a photo of the bracket",
+    "old": {
+      "title": "How it works today",
+      "body": "Forty people in a group chat. A photo of a hand-drawn bracket that is already out of date. Three messages asking what time they play. And you, rubbing out and redrawing boxes between matches."
+    },
+    "new": {
+      "title": "How it works with Cuadro",
+      "body": "One link. Every player opens it and sees their next match, the court and the time. You enter a result and the bracket, the standings and the schedule update for everyone at once."
+    }
+  },
+  "how": {
+    "eyebrow": "How it works",
+    "title": "Three steps, that's it",
+    "steps": {
+      "one": {
+        "title": "Add the participants",
+        "body": "Pairs, teams or individual players. Paste the list and Cuadro sorts it out."
+      },
+      "two": {
+        "title": "Pick the format",
+        "body": "Cuadro works out the pairings, places the seeds, distributes the byes and orders the rounds."
+      },
+      "three": {
+        "title": "Share the link",
+        "body": "Just one, for the whole tournament. No accounts, nothing to install."
+      }
+    }
+  },
+  "formats": {
+    "eyebrow": "Formats",
+    "title": "The draw, solved",
+    "lead": "All of it calculated, none of it guessed. Same tournament, same bracket, every time.",
+    "roundRobin": {
+      "title": "Round robin",
+      "body": "Everyone plays everyone, once or twice. With an odd number of pairs the byes rotate on their own, so nobody sits out twice before everyone has sat out once."
+    },
+    "knockout": {
+      "title": "Knockout",
+      "body": "Seeds placed the way a bracket demands: 1 and 2 can only meet in the final. Byes go to the top seeds."
+    },
+    "double": {
+      "title": "Double elimination",
+      "body": "A winners bracket and a losers bracket. Nobody goes home after one defeat, which is the part that stings most in a one-day event."
+    },
+    "groups": {
+      "title": "Groups into knockout",
+      "body": "Groups balanced by serpentine seeding, so no group of death. Group rivals cannot meet again in the first knockout round."
+    },
+    "swiss": {
+      "title": "Swiss",
+      "body": "Each round pairs players on similar scores and never repeats a matchup. Made for a big field and a short day."
+    },
+    "courts": {
+      "title": "Courts and times",
+      "body": "Spreads matches across your courts without booking anyone twice, and without leaving a pair waiting all morning between two matches."
+    }
+  },
+  "link": {
+    "eyebrow": "The link",
+    "title": "One link for the whole tournament",
+    "body": "Your players create no account and install nothing. They open the link on their phone, on court, on club wifi, and see the bracket as it stands.",
+    "points": {
+      "one": "Opens on any phone, no app",
+      "two": "Built to be read outdoors, at a glance",
+      "three": "The same link lasts the whole season"
+    }
+  },
+  "pricing": {
+    "eyebrow": "Pricing",
+    "title": "Start free",
+    "free": {
+      "title": "Free",
+      "price": "€0",
+      "body": "One active tournament, every format, public link and live results.",
+      "cta": "Create a tournament"
+    },
+    "club": {
+      "title": "Club",
+      "price": "Soon",
+      "body": "Unlimited tournaments, your club's badge on the bracket, and PDF export to print and pin on the noticeboard.",
+      "cta": "Notify me"
+    }
+  },
+  "footer": {
+    "tagline": "Club tournaments, without the hassle.",
+    "product": "Product",
+    "company": "Cuadro",
+    "formats": "Formats",
+    "pricing": "Pricing",
+    "signIn": "Sign in",
+    "contact": "Contact",
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "rights": "Made in Spain for padel clubs."
+  }
+}

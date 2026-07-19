@@ -1,0 +1,102 @@
+/**
+ * DARK THEME — organiser app only.
+ *
+ * Deliberately NOT applied via a bare `@media (prefers-color-scheme: dark)`.
+ *
+ * Why: the public tournament page is read outdoors, on a phone, in Spanish
+ * sunlight. Under bright ambient light a phone raises backlight to maximum and
+ * dark themes wash out badly — light text on a dark field loses contrast far
+ * faster than dark-on-light as glare rises. A player squinting at a draw sheet
+ * courtside is the exact case we optimise for, and honouring a device-wide dark
+ * preference there actively harms them.
+ *
+ * So: the public page is permanently light with an explicit manual toggle. The
+ * organiser app (used indoors, at a desk or in a clubhouse) honours the OS
+ * preference. That split is implemented by scoping the media query to
+ * [data-theme="auto"], which only the organiser shell sets.
+ */
+
+[data-theme='dark'] {
+  --color-bg: var(--c-blue-900);
+  --color-surface: #0d2e56;
+  --color-surface-raised: #14395f;
+  --color-surface-sunken: #041c39;
+  --color-surface-inverse: var(--c-paper-50);
+
+  --color-text: var(--c-paper-50);
+  --color-text-muted: var(--c-blue-300);
+  --color-text-inverse: var(--c-ink-900);
+  --color-text-on-brand: var(--c-white);
+
+  /* On a dark field the deep court blue is invisible, so brand shifts to the
+     lighter end of the same ramp. The ROLE is unchanged — only the value. */
+  --color-brand: var(--c-blue-500);
+  --color-brand-strong: var(--c-blue-300);
+  --color-brand-soft: #10365e;
+  --color-brand-contrast: var(--c-ink-900);
+
+  --color-accent: var(--c-blue-300);
+  --color-accent-soft: #10365e;
+
+  --color-border: #2c5581;
+  --color-border-strong: var(--c-blue-300);
+  --color-line-court: var(--c-blue-300);
+
+  /* Optic yellow reads well on dark, so text and fill can share a value here —
+     unlike the light theme, where the bright yellow fails on white. */
+  --color-live: var(--c-yellow-400);
+  --color-live-text: var(--c-yellow-400);
+  --color-live-contrast: var(--c-ink-900);
+
+  --color-positive: #4fc4a2;
+  --color-positive-soft: #0c3d33;
+  --color-negative: #ff9c94;
+  --color-negative-soft: #4d1512;
+  --color-warning: #e8b45c;
+  --color-warning-soft: #43300c;
+
+  --color-focus: var(--c-white);
+  --color-focus-halo: var(--c-ink-900);
+}
+
+/* Organiser shell opts in to following the OS. The public page never sets this. */
+@media (prefers-color-scheme: dark) {
+  [data-theme='auto'] {
+    --color-bg: var(--c-blue-900);
+    --color-surface: #0d2e56;
+    --color-surface-raised: #14395f;
+    --color-surface-sunken: #041c39;
+    --color-surface-inverse: var(--c-paper-50);
+
+    --color-text: var(--c-paper-50);
+    --color-text-muted: var(--c-blue-300);
+    --color-text-inverse: var(--c-ink-900);
+    --color-text-on-brand: var(--c-white);
+
+    --color-brand: var(--c-blue-500);
+    --color-brand-strong: var(--c-blue-300);
+    --color-brand-soft: #10365e;
+    --color-brand-contrast: var(--c-ink-900);
+
+    --color-accent: var(--c-blue-300);
+    --color-accent-soft: #10365e;
+
+    --color-border: #2c5581;
+    --color-border-strong: var(--c-blue-300);
+    --color-line-court: var(--c-blue-300);
+
+    --color-live: var(--c-yellow-400);
+    --color-live-text: var(--c-yellow-400);
+    --color-live-contrast: var(--c-ink-900);
+
+    --color-positive: #4fc4a2;
+    --color-positive-soft: #0c3d33;
+    --color-negative: #ff9c94;
+    --color-negative-soft: #4d1512;
+    --color-warning: #e8b45c;
+    --color-warning-soft: #43300c;
+
+    --color-focus: var(--c-white);
+    --color-focus-halo: var(--c-ink-900);
+  }
+}

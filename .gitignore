@@ -1,0 +1,23 @@
+node_modules/
+dist/
+coverage/
+*.local
+
+# Environment: only .env.example is committed.
+.env
+.env.*
+!.env.example
+
+# Supabase CLI
+supabase/.temp/
+supabase/.branches/
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# TS build info
+*.tsbuildinfo

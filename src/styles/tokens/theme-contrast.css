@@ -1,0 +1,59 @@
+/**
+ * HIGH CONTRAST
+ *
+ * Shipped in milestone 1 on purpose. Once the semantic layer exists this costs
+ * one file; retrofitting it after a hundred components have been written is a
+ * refactor. It serves two audiences at once — low-vision users, and anyone
+ * reading a draw sheet in direct sun, which is most of our public traffic.
+ *
+ * Applied either by user choice ([data-contrast="high"]) or by OS preference.
+ * Unlike dark mode, honouring prefers-contrast on the public page is strictly
+ * good: more contrast never hurts outdoor legibility.
+ */
+
+[data-contrast='high'],
+:root:has([data-contrast='high']) {
+  --color-text: #000;
+  --color-text-muted: #1e2a38;
+  --color-border: var(--c-ink-700);
+  --color-border-strong: #000;
+  --color-bg: #fff;
+  --color-surface: #fff;
+
+  --color-brand: var(--c-blue-900);
+  --color-brand-soft: var(--c-blue-100);
+
+  --color-live-text: #4a5504;
+  --color-positive: #0a5341;
+  --color-negative: #8c1610;
+
+  /* Thicker court lines: at high contrast the line weight carries as much
+     information as the colour does. */
+  --line-thin: var(--line-thick);
+  --focus-ring-width: var(--line-heavy);
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --color-text: #000;
+    --color-text-muted: #1e2a38;
+    --color-border: var(--c-ink-700);
+    --color-border-strong: #000;
+
+    --color-live-text: #4a5504;
+    --color-positive: #0a5341;
+    --color-negative: #8c1610;
+
+    --line-thin: var(--line-thick);
+    --focus-ring-width: var(--line-heavy);
+  }
+}
+
+[data-theme='dark'][data-contrast='high'] {
+  --color-text: #fff;
+  --color-text-muted: #cfe0f0;
+  --color-bg: #000;
+  --color-surface: #061424;
+  --color-border: #fff;
+  --color-border-strong: #fff;
+}

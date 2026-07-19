@@ -1,0 +1,131 @@
+/**
+ * LAYER 1 — PRIMITIVES
+ *
+ * Raw, theme-agnostic values. This is the ONLY file in the codebase permitted to
+ * contain a colour literal (enforced by stylelint.config.js).
+ *
+ * Components must never reference a --c-* token directly. They speak only the
+ * semantic vocabulary in semantic.css. That indirection is what makes theming
+ * and per-club branding possible without touching a single component.
+ *
+ * ── Palette: "Pista" ─────────────────────────────────────────────────────────
+ * Grounded in the padel court itself. A pista is a blue rectangle with hard
+ * white lines, and those lines carry meaning — they define what is in and what
+ * is out. Cuadro uses the same device: dividers, bracket paths and table rules
+ * are court lines, solid and high contrast, never decorative hairlines.
+ */
+
+:root {
+  /* ── Court blue ─────────────────────────────────────────────────────────── */
+  --c-blue-900: #06264a;
+  --c-blue-800: #0b3b6f; /* deep court blue — brand, headers, bracket paths */
+  --c-blue-700: #13548f;
+  --c-blue-600: #1b6ca8; /* surface blue — fills, active states */
+  --c-blue-500: #3288c4;
+  --c-blue-300: #8fc0e2;
+  --c-blue-100: #d8e8f4;
+  --c-blue-50: #eef5fa;
+
+  /* ── Optic yellow ───────────────────────────────────────────────────────────
+     The ball. Reserved exclusively for LIVE / in-progress state — never
+     decorative. Its meaning is "this is happening right now", and that meaning
+     is destroyed the moment it is used as an accent. Paired with a text label
+     everywhere it appears, because meaning is never carried by colour alone. */
+  --c-yellow-400: #d8f034;
+  --c-yellow-500: #b8cf1c;
+  --c-yellow-700: #6b7a06;
+
+  /* ── Neutrals ───────────────────────────────────────────────────────────────
+     Not pure #fff / #000. Pure white halates under direct sunlight (the glare
+     bleeds into adjacent glyphs and destroys letterform edges) and pure black
+     on white is harsher than necessary on an OLED phone outdoors. */
+  --c-ink-900: #0e1621; /* body text — ~15:1 on --c-paper-50 */
+  --c-ink-700: #2a3746;
+  --c-ink-500: #4a5a6d; /* muted text — still ≥4.5:1, used at weight 500+ */
+  --c-ink-300: #8695a6;
+  --c-ink-200: #b9c4d0; /* borders — ≥3:1, structural not decorative */
+  --c-paper-200: #dde5ec;
+  --c-paper-100: #eaeff4;
+  --c-paper-50: #f4f7fa; /* daylight — public page background */
+  --c-white: #fdfefe;
+
+  /* ── Status ─────────────────────────────────────────────────────────────────
+     Win/loss/eliminated. Always accompanied by an icon or text label. */
+  --c-green-600: #10725a;
+  --c-green-100: #d3ece4;
+  --c-red-600: #b3261e;
+  --c-red-100: #f8dedc;
+  --c-amber-600: #8a5a00;
+  --c-amber-100: #fbeacd;
+
+  /* ── Spacing — 4px base ─────────────────────────────────────────────────── */
+  --space-0: 0;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+
+  /* ── Type scale ─────────────────────────────────────────────────────────────
+     Body is 17px, not the conventional 16px. Outdoors, on a phone, at arm's
+     length, 16px is genuinely marginal — this is the size the public page is
+     read at while standing on a court. */
+  --text-xs: 0.8125rem; /* 13px — captions, never body copy */
+  --text-sm: 0.9375rem; /* 15px */
+  --text-base: 1.0625rem; /* 17px — body */
+  --text-lg: 1.25rem; /* 20px */
+  --text-xl: 1.5rem; /* 24px */
+  --text-2xl: 2rem; /* 32px */
+  --text-3xl: 2.75rem; /* 44px */
+  --text-4xl: 3.75rem; /* 60px — scoreboard numerals */
+
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-black: 800;
+
+  /* Archivo is a variable font with a width axis. Display roles use the expanded
+     end for scoreboard presence; body stays at normal width. One superfamily
+     across all three roles keeps the storefront to a single font request. */
+  --width-condensed: 88;
+  --width-normal: 100;
+  --width-expanded: 118;
+
+  /* ── Radius ─────────────────────────────────────────────────────────────────
+     Restrained. Court markings are right angles; heavy rounding fights the
+     metaphor. Nothing above 8px except pills. */
+  --radius-0: 0;
+  --radius-1: 2px;
+  --radius-2: 4px;
+  --radius-3: 8px;
+  --radius-pill: 999px;
+
+  /* ── Line weights ───────────────────────────────────────────────────────────
+     There is no 1px option on purpose. Hairline borders are invisible in
+     sunlight and are the single most common outdoor-legibility failure. */
+  --line-thin: 2px;
+  --line-thick: 3px;
+  --line-heavy: 4px;
+
+  /* ── Elevation ──────────────────────────────────────────────────────────────
+     Used sparingly. Structure comes from lines, not shadows. */
+  --shadow-1: 0 1px 2px rgb(14 22 33 / 8%);
+  --shadow-2: 0 2px 8px rgb(14 22 33 / 12%);
+  --shadow-3: 0 8px 24px rgb(14 22 33 / 16%);
+
+  /* ── Minimum touch target — thumbs, sunlight, movement ──────────────────── */
+  --tap-min: 48px;
+
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --ease-out: cubic-bezier(0.2, 0, 0, 1);
+}

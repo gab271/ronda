@@ -1,0 +1,13 @@
+# Cloudflare Pages SPA fallback.
+#
+# Without this, a player opening a shared link like /t/aB3xK9pQ2m directly (which
+# is the ONLY way anyone ever reaches the public page — it is always a cold load
+# from WhatsApp, never a client-side navigation) gets a 404 from the static host,
+# because no such file exists in dist/.
+#
+# The 200 status rewrites rather than redirects, so the URL the organiser shared
+# is the URL that stays in the address bar.
+#
+# Milestone 4 replaces this for /t/* specifically with a Pages Function that
+# server-renders the tournament at the edge.
+/*  /index.html  200

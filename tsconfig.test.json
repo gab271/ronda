@@ -1,0 +1,14 @@
+{
+  // Tests get Node types (they read the filesystem to verify import boundaries)
+  // and Vitest's globals-free API. Application code deliberately does not — see
+  // the `exclude` in tsconfig.json.
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": ["vite/client", "node"],
+    // Test files legitimately declare fixtures that a strict unused check
+    // flags while a test is being written.
+    "noUnusedLocals": false
+  },
+  "include": ["src/**/*.test.ts", "src/**/*.test.tsx", "src/test/**/*.ts", "src/i18n/resources.d.ts"],
+  "exclude": []
+}

@@ -1,0 +1,64 @@
+.page {
+  min-height: 100dvh;
+  background-color: var(--color-bg);
+}
+
+/* The blue band: the strongest expression of the court metaphor in the chrome.
+   A deep blue field with a white line beneath it, the way a court reads from
+   above. */
+.header {
+  padding: var(--space-4) var(--space-4);
+  background-color: var(--color-brand);
+  border-bottom: var(--line-heavy) solid var(--color-line-court);
+}
+
+.headerInner {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  justify-content: space-between;
+  max-width: 68rem;
+  margin-inline: auto;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-black);
+  font-variation-settings: 'wdth' var(--width-expanded);
+  letter-spacing: 0.02em;
+  color: var(--color-text-on-brand);
+  text-transform: uppercase;
+}
+
+.headerActions {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.signOut {
+  min-height: var(--tap-min);
+  padding-inline: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-on-brand);
+  cursor: pointer;
+  background: none;
+  border: var(--line-thin) solid transparent;
+  border-radius: var(--radius-2);
+}
+
+.signOut:hover {
+  border-color: var(--color-line-court);
+}
+
+.main {
+  max-width: 68rem;
+  margin-inline: auto;
+  padding: var(--space-6) var(--space-4);
+}
+
+.title {
+  margin-bottom: var(--space-5);
+}

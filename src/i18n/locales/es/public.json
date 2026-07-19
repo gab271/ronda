@@ -1,0 +1,25 @@
+{
+  "notFound": {
+    "title": "Este torneo no existe",
+    "body": "El enlace puede estar mal copiado, o el torneo aún no se ha publicado. Pide al organizador que te lo envíe de nuevo."
+  },
+  "offline": {
+    "title": "Sin conexión",
+    "body": "No hemos podido cargar el torneo. Comprueba tu conexión y vuelve a intentarlo.",
+    "action": "Reintentar"
+  },
+  "serverError": {
+    "title": "El torneo no se ha podido cargar",
+    "body": "Ha fallado el servidor, no tu conexión. Inténtalo de nuevo en unos segundos."
+  },
+  "loading": "Cargando el torneo…",
+  "status": {
+    "live": "En juego",
+    "finished": "Finalizado",
+    "pending": "Por jugar"
+  },
+  "placeholder": {
+    "title": "Aquí irá el cuadro",
+    "body": "Esta página pública se construye en el hito 4."
+  }
+}

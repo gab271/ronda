@@ -1,0 +1,21 @@
+{
+  "dashboard": {
+    "title": "Tus torneos",
+    "empty": {
+      "title": "Todavía no has creado ningún torneo",
+      "body": "Crea uno, añade a los participantes y Cuadro genera todos los partidos.",
+      "action": "Crear torneo"
+    }
+  },
+  "nav": {
+    "tournaments": "Torneos",
+    "club": "Club",
+    "account": "Cuenta"
+  },
+  "error": {
+    "loadFailed": {
+      "title": "No hemos podido cargar tus torneos",
+      "body": "Ha fallado la conexión con el servidor. Vuelve a intentarlo."
+    }
+  }
+}

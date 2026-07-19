@@ -1,0 +1,40 @@
+{
+  "appName": "Cuadro",
+  "tagline": "Torneos de club, sin complicaciones",
+  "action": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "create": "Crear",
+    "publish": "Publicar",
+    "retry": "Reintentar",
+    "back": "Volver",
+    "signIn": "Entrar",
+    "signOut": "Salir",
+    "signUp": "Crear cuenta"
+  },
+  "state": {
+    "loading": "Cargando…",
+    "saving": "Guardando…"
+  },
+  "language": {
+    "label": "Idioma",
+    "es": "Español",
+    "en": "English"
+  },
+  "theme": {
+    "label": "Tema",
+    "light": "Claro",
+    "dark": "Oscuro"
+  },
+  "sport": {
+    "padel": "Pádel",
+    "futbol7": "Fútbol 7",
+    "baloncesto": "Baloncesto",
+    "ajedrez": "Ajedrez"
+  },
+  "venue_padel": "Pista",
+  "venue_futbol7": "Campo",
+  "venue_baloncesto": "Cancha",
+  "venue_ajedrez": "Mesa",
+  "venue": "Pista"
+}

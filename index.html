@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- viewport-fit=cover for notched phones; user scaling is never disabled. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+    <!--
+      theme-color matches the deep court blue of the header band so the phone
+      browser chrome continues the design rather than interrupting it.
+    -->
+    <meta name="theme-color" content="#0b3b6f" />
+
+    <title>Cuadro</title>
+    <meta name="description" content="Torneos de club, sin complicaciones." />
+
+    <!--
+      The Supabase preconnect is injected here at build time by the
+      cuadro:supabase-preconnect plugin in vite.config.ts, because the origin is
+      environment-specific. It overlaps the DNS+TCP+TLS handshake with bundle
+      download instead of serialising after it — worth several hundred ms on the
+      bad 4G the public tournament page is designed for.
+    -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

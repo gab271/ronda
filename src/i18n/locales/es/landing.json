@@ -1,0 +1,118 @@
+{
+  "nav": {
+    "signIn": "Entrar",
+    "create": "Crear torneo",
+    "skipToContent": "Saltar al contenido"
+  },
+  "hero": {
+    "eyebrow": "Pádel · Fútbol 7 · Baloncesto · Ajedrez",
+    "title": "El cuadro se hace solo",
+    "lead": "Añade las parejas, elige el formato y Cuadro genera todos los partidos. Compartes un enlace y cada jugador ve cuándo juega, contra quién y en qué pista.",
+    "primary": "Crear un torneo",
+    "secondary": "Ver un torneo de ejemplo",
+    "note": "Gratis para un torneo activo. Tus jugadores no necesitan cuenta."
+  },
+  "draw": {
+    "caption": "Cuadro real de 8 parejas. Los resultados van entrando y el cuadro se actualiza solo.",
+    "pending": "Ganador C{{index}}",
+    "live": "En juego",
+    "champion": "Campeón"
+  },
+  "before": {
+    "eyebrow": "Ahora mismo",
+    "title": "Un grupo de WhatsApp y una foto del cuadro",
+    "old": {
+      "title": "Como se hace hoy",
+      "body": "Cuarenta personas en un grupo. Una foto del cuadro dibujado a mano que ya no vale. Tres mensajes preguntando a qué hora juegan. Y tú, borrando y repintando casillas entre partido y partido."
+    },
+    "new": {
+      "title": "Como se hace con Cuadro",
+      "body": "Un enlace. Cada jugador abre el suyo y ve su próximo partido, la pista y la hora. Metes un resultado y el cuadro, la clasificación y los horarios se actualizan para todos a la vez."
+    }
+  },
+  "how": {
+    "eyebrow": "Cómo funciona",
+    "title": "Tres pasos y ya está",
+    "steps": {
+      "one": {
+        "title": "Añade a los participantes",
+        "body": "Parejas, equipos o jugadores sueltos. Pega la lista y Cuadro la ordena."
+      },
+      "two": {
+        "title": "Elige el formato",
+        "body": "Cuadro calcula los emparejamientos, coloca los cabezas de serie, reparte los byes y ordena las rondas."
+      },
+      "three": {
+        "title": "Comparte el enlace",
+        "body": "Uno solo, para todo el torneo. Sin cuentas y sin instalar nada."
+      }
+    }
+  },
+  "formats": {
+    "eyebrow": "Formatos",
+    "title": "El sorteo, resuelto",
+    "lead": "Todo se calcula con algoritmos, no a ojo. Mismo torneo, mismo cuadro, siempre.",
+    "roundRobin": {
+      "title": "Liguilla",
+      "body": "Todos contra todos, a una vuelta o a dos. Con un número impar de parejas los descansos rotan solos y nadie descansa dos veces antes que el resto."
+    },
+    "knockout": {
+      "title": "Eliminatoria",
+      "body": "Cabezas de serie colocados como manda el cuadro: el 1 y el 2 solo pueden verse en la final. Los byes van a los primeros cabezas de serie."
+    },
+    "double": {
+      "title": "Doble eliminación",
+      "body": "Cuadro de ganadores y cuadro de perdedores. Nadie se va a casa por perder un partido, que es lo que más duele en un torneo de un día."
+    },
+    "groups": {
+      "title": "Grupos y eliminatoria",
+      "body": "Grupos equilibrados en serpentina, para que no salga un grupo de la muerte. Los rivales de grupo no vuelven a cruzarse en la primera ronda."
+    },
+    "swiss": {
+      "title": "Suizo",
+      "body": "Cada ronda enfrenta a parejas de nivel parecido y nunca repite un emparejamiento. Ideal cuando hay mucha gente y poco tiempo."
+    },
+    "courts": {
+      "title": "Pistas y horarios",
+      "body": "Reparte los partidos entre tus pistas sin solapar a nadie y sin dejar a una pareja esperando toda la mañana entre dos partidos."
+    }
+  },
+  "link": {
+    "eyebrow": "El enlace",
+    "title": "Un enlace para todo el torneo",
+    "body": "Tus jugadores no crean cuenta ni instalan nada. Abren el enlace en el móvil, en la pista, con la cobertura del club, y ven el cuadro actualizado.",
+    "points": {
+      "one": "Se abre en cualquier móvil, sin app",
+      "two": "Pensado para leerse al sol, de un vistazo",
+      "three": "El mismo enlace vale toda la temporada"
+    }
+  },
+  "pricing": {
+    "eyebrow": "Precio",
+    "title": "Empieza gratis",
+    "free": {
+      "title": "Gratis",
+      "price": "0 €",
+      "body": "Un torneo activo, todos los formatos, enlace público y resultados en directo.",
+      "cta": "Crear un torneo"
+    },
+    "club": {
+      "title": "Club",
+      "price": "Pronto",
+      "body": "Torneos ilimitados, el escudo de tu club en el cuadro y exportación a PDF para imprimir y colgar en el tablón.",
+      "cta": "Avísame"
+    }
+  },
+  "footer": {
+    "tagline": "Torneos de club, sin complicaciones.",
+    "product": "Producto",
+    "company": "Cuadro",
+    "formats": "Formatos",
+    "pricing": "Precio",
+    "signIn": "Entrar",
+    "contact": "Contacto",
+    "terms": "Términos",
+    "privacy": "Privacidad",
+    "rights": "Hecho en España para clubes de pádel."
+  }
+}

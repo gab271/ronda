@@ -1,0 +1,23 @@
+{
+  // ENGINE PURITY GATE — this is the load-bearing enforcement mechanism.
+  //
+  // The scheduling engine must be pure: no React, no network, no Supabase, no DOM.
+  // Lint rules can be silenced with a comment and tests only cover what they call,
+  // so neither is a real boundary. This config is: by omitting "DOM" from `lib`
+  // and setting `types` to [], the engine physically cannot type-check if it
+  // references `fetch`, `window`, `document`, `localStorage`, `setTimeout` or
+  // `console`. The failure is a compile error, not a convention.
+  //
+  // Engine source is also checked a second time by tsconfig.json (with DOM
+  // available) so that app code importing the engine resolves normally. That is
+  // fine — this file is where the purity violation surfaces.
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ES2022"],
+    "types": []
+  },
+  // Tests are excluded: they import from "vitest", whose types pull in DOM
+  // references. They are still type-checked by tsconfig.json.
+  "include": ["src/engine/**/*"],
+  "exclude": ["src/engine/**/*.test.ts", "src/engine/__tests__/**"]
+}

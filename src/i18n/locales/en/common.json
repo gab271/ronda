@@ -1,0 +1,40 @@
+{
+  "appName": "Cuadro",
+  "tagline": "Club tournaments, without the hassle",
+  "action": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "create": "Create",
+    "publish": "Publish",
+    "retry": "Try again",
+    "back": "Back",
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "signUp": "Create account"
+  },
+  "state": {
+    "loading": "Loading…",
+    "saving": "Saving…"
+  },
+  "language": {
+    "label": "Language",
+    "es": "Español",
+    "en": "English"
+  },
+  "theme": {
+    "label": "Theme",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "sport": {
+    "padel": "Padel",
+    "futbol7": "7-a-side football",
+    "baloncesto": "Basketball",
+    "ajedrez": "Chess"
+  },
+  "venue_padel": "Court",
+  "venue_futbol7": "Pitch",
+  "venue_baloncesto": "Court",
+  "venue_ajedrez": "Board",
+  "venue": "Court"
+}

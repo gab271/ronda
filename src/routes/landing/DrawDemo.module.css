@@ -1,0 +1,488 @@
+/**
+ * THE SIGNATURE ELEMENT.
+ *
+ * ── Why every keyframe is prefixed kf- ──────────────────────────────────────
+ * CSS Modules with `localsConvention: 'camelCaseOnly'` exports keyframe names
+ * into the SAME namespace as class names. A keyframe `live-window` and a class
+ * `.liveWindow` therefore both export as `liveWindow`, and one silently
+ * overwrites the other — `styles.liveWindow` returned the keyframe's hashed id,
+ * the element got a class matching no rule, and the animation simply never ran.
+ * It fails quietly: no error, no warning, just a badge stuck on screen.
+ *
+ * The kf- prefix keeps the two namespaces disjoint by construction.
+ *
+ * A knockout bracket drawn the way lines are painted on a padel court: solid
+ * white, right angles, no curves and no hairlines. It fills itself in on load —
+ * results appear, winners advance along the lines, a champion is crowned — and
+ * then holds. It does not loop; a finished bracket is a good resting image, and
+ * that same finished state is what reduced-motion users get immediately.
+ *
+ * ── Geometry ────────────────────────────────────────────────────────────────
+ * Each round is a grid whose row height doubles: quarter-finals sit in cells of
+ * --unit, semi-finals in 2×--unit, the final in 4×--unit. Every column is
+ * therefore the same total height and each match lands vertically centred
+ * between the two that feed it — which is what makes the connectors straight
+ * lines rather than a pile of magic numbers.
+ *
+ * Connectors are three pieces: a stub out of the right of a match, a vertical
+ * joining a pair, and a stub into the left of the next match. The vertical's
+ * height is exactly --cell of its own round, because two adjacent cells of
+ * height C have centres C apart.
+ */
+
+.wrapper {
+  position: relative;
+  container-type: inline-size;
+}
+
+/* On a narrow screen the bracket scrolls inside its own container rather than
+   forcing the page sideways. */
+.scroller {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Fade on the right edge, so it reads as "there is more" rather than "cut off". */
+.wrapper::after {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  right: 0;
+  width: var(--space-6);
+  pointer-events: none;
+  background: var(--gradient-court-edge);
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+@container (max-width: 640px) {
+  .wrapper::after {
+    opacity: 1;
+  }
+}
+
+.bracket {
+  /* --unit is the height of a first-round cell. The match inside is ~68px, so
+     the surplus is the vertical gap that makes matches read as discrete boxes
+     rather than one continuous column. */
+  --unit: 92px;
+  --col-gap: 32px;
+  --line: var(--line-thin);
+
+  display: flex;
+  gap: var(--col-gap);
+  align-items: stretch;
+
+  /* Sized so a full Spanish pair name ("Ferrer / Marín") fits without
+     truncation — an earlier pass clipped every name to "García..." and the
+     whole point of the hero is that these are real names. */
+  min-width: 664px;
+
+  /* Room on the right for the champion tag, which sits outside the final. */
+  padding: var(--space-2) 104px var(--space-2) 0;
+}
+
+.round {
+  display: grid;
+  grid-auto-rows: var(--cell);
+  flex: 1 1 0;
+  min-width: 200px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.round[data-round='1'] {
+  --cell: var(--unit);
+}
+
+.round[data-round='2'] {
+  --cell: calc(var(--unit) * 2);
+}
+
+.round[data-round='3'] {
+  --cell: calc(var(--unit) * 4);
+}
+
+.slot {
+  display: flex;
+  align-items: center;
+}
+
+/* ── Round heading ────────────────────────────────────────────────────────── */
+.roundLabel {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  font-variation-settings: 'wdth' var(--width-condensed);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-court-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+/* ── A match ──────────────────────────────────────────────────────────────── */
+.match {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-court-fill);
+
+  /* The left edge is the court line: heavy, white, structural. */
+  border-left: var(--line-thick) solid var(--color-court-line-faint);
+  transition: background-color var(--duration-base) var(--ease-out);
+}
+
+.match[data-decided='true'] {
+  background-color: var(--color-court-fill-raised);
+  border-left-color: var(--color-court-text);
+}
+
+/* Connector stubs and the vertical join between a pair. */
+.match[data-out='true']::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: calc(var(--col-gap) / -2);
+  width: calc(var(--col-gap) / 2);
+  height: var(--line);
+  background-color: var(--color-court-line-faint);
+}
+
+.match[data-in='true']::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: calc(var(--col-gap) / -2);
+  width: calc(var(--col-gap) / 2);
+  height: var(--line);
+  background-color: var(--color-court-line-faint);
+}
+
+/* The vertical joining a pair of matches. Its height is exactly --cell of its
+   own round, because two adjacent cells of height C have centres C apart.
+   Draws downward from the upper match's centre. */
+.join {
+  position: absolute;
+  top: 50%;
+  right: calc(var(--col-gap) / -2);
+  width: var(--line);
+  height: var(--cell);
+  background-color: var(--color-court-line-faint);
+  transform-origin: center top;
+  animation: kf-draw-down 400ms var(--ease-out) both;
+  animation-delay: var(--d-line, 0ms);
+}
+
+/* ── A side of a match ────────────────────────────────────────────────────── */
+.side {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.25rem 1fr auto;
+  gap: var(--space-2);
+  align-items: center;
+  padding: var(--space-2) var(--space-3);
+}
+
+.side + .side {
+  border-top: var(--line) solid var(--color-court-line-ghost);
+}
+
+.seed {
+  font-variant-numeric: tabular-nums;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  color: var(--color-court-text-muted);
+  text-align: center;
+}
+
+.nameCell {
+  position: relative;
+  min-width: 0;
+}
+
+.name {
+  display: block;
+  overflow: hidden;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-court-text-muted);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* The winner is stated by weight and a full-strength colour, never by colour
+   alone — a losing side is still perfectly legible. */
+.side[data-won='true'] .name {
+  font-weight: var(--weight-bold);
+  color: var(--color-court-text);
+}
+
+/* Placeholder ("Ganador C1") sits in the same cell and cross-fades out as the
+   real name arrives. */
+.pending {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-regular);
+  font-style: italic;
+  color: var(--color-court-line-faint);
+  white-space: nowrap;
+}
+
+/* ── Scores: the scoreboard type ──────────────────────────────────────────── */
+.sets {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.set {
+  min-width: 1ch;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-court-text-muted);
+  text-align: right;
+}
+
+.side[data-won='true'] .set {
+  color: var(--color-court-text);
+}
+
+/* ── Live state — the ONLY optic yellow on the page ───────────────────────────
+   Straddles the TOP edge of the match rather than sitting inside it. Centred
+   over the box it collided with the score columns, which is exactly where the
+   eye goes when a result is landing. */
+.live {
+  position: absolute;
+  top: 0;
+  right: var(--space-3);
+  z-index: 1;
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  transform: translateY(-50%);
+
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  font-variation-settings: 'wdth' var(--width-condensed);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-live-contrast);
+
+  padding: var(--space-1) var(--space-2);
+  background-color: var(--color-live);
+  border-radius: var(--radius-1);
+}
+
+.liveDot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-live-contrast);
+  border-radius: var(--radius-pill);
+}
+
+/* ── Champion ─────────────────────────────────────────────────────────────────
+   The winner of the final fills in white and takes a tag, so the champion
+   emerges FROM the draw. An earlier pass gave it a separate column, which cost
+   ~180px of width the bracket needed for full pair names and read as a badge
+   bolted on beside the draw rather than the result of it. */
+.side[data-champion='true'] {
+  background-color: var(--color-court-text);
+  animation: kf-crown var(--duration-base) var(--ease-out) both;
+  animation-delay: var(--d-crown, 0ms);
+}
+
+.side[data-champion='true'] .name,
+.side[data-champion='true'] .set {
+  color: var(--color-court-deep);
+}
+
+.side[data-champion='true'] .seed {
+  color: var(--color-court-raised);
+}
+
+.crown {
+  position: absolute;
+  top: 50%;
+  right: calc(-1 * var(--space-2));
+  transform: translate(100%, -50%);
+
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  font-variation-settings: 'wdth' var(--width-condensed);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--color-court-text);
+
+  animation: kf-appear var(--duration-base) var(--ease-out) both;
+  animation-delay: var(--d-crown, 0ms);
+}
+
+@keyframes kf-crown {
+  from {
+    background-color: var(--color-court-fill-raised);
+  }
+
+  to {
+    background-color: var(--color-court-text);
+  }
+}
+
+/* ── Caption ──────────────────────────────────────────────────────────────── */
+.caption {
+  margin-top: var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-court-text-muted);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   THE SEQUENCE
+   Everything below is the animation. Each element carries its own --d delay
+   from the data in demoDraw.ts, so the timeline lives in one readable place
+   rather than being scattered through keyframes.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.reveal {
+  opacity: 0;
+  animation: kf-appear var(--duration-base) var(--ease-out) forwards;
+  animation-delay: var(--d, 0ms);
+}
+
+.revealPop {
+  opacity: 0;
+  transform: scale(0.94);
+  animation: kf-pop 320ms var(--ease-out) forwards;
+  animation-delay: var(--d, 0ms);
+}
+
+/* The placeholder fades OUT as its replacement fades in. */
+.fadeOut {
+  animation: kf-vanish var(--duration-base) var(--ease-out) forwards;
+  animation-delay: var(--d, 0ms);
+}
+
+/* Live badge: visible for a window, then gone when the result lands.
+   ONE animation spanning the whole window rather than a stacked appear+vanish
+   pair — with two animations on the same property, precedence is by list order
+   rather than by time, which made the badge's state depend on ordering rather
+   than on the timeline. A single keyframe cannot get that wrong. */
+.liveWindow {
+  opacity: 0;
+  animation: kf-live-window var(--live-duration, 600ms) linear forwards;
+  animation-delay: var(--d-in, 0ms);
+}
+
+@keyframes kf-live-window {
+  0% {
+    opacity: 0;
+  }
+
+  12%,
+  88% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* The horizontal court lines drawing themselves in, left to right. */
+.match[data-out='true']::after,
+.match[data-in='true']::before {
+  transform-origin: left center;
+  animation: kf-draw 400ms var(--ease-out) both;
+  animation-delay: var(--d-line, 0ms);
+}
+
+@keyframes kf-appear {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes kf-pop {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes kf-vanish {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes kf-draw {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes kf-draw-down {
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* Reduced motion: no sequence at all. Everything is simply already there —
+   which is exactly the state the animation was heading towards, so nothing is
+   lost. This is why the bracket holds rather than loops. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .revealPop,
+  .liveWindow {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .fadeOut {
+    opacity: 0;
+    animation: none;
+  }
+
+  .liveWindow {
+    display: none;
+  }
+
+  .match[data-out='true']::after,
+  .match[data-in='true']::before,
+  .join {
+    transform: none;
+    animation: none;
+  }
+}
+
+/* ── Narrow screens ───────────────────────────────────────────────────────────
+   Column width is NOT reduced here. An earlier pass dropped it to 148px, which
+   truncated every name back to "Ibáñez / Ro..." — the exact failure this
+   component exists to avoid, and worse on the device most visitors use. The
+   bracket keeps its real width and scrolls sideways inside .scroller instead;
+   a horizontal scroll is a smaller cost than unreadable names.
+
+   --unit also stays put: at 66px the matches (~77px of content) collided and
+   the draw read as one continuous column rather than discrete matches. */
+@container (max-width: 720px) {
+  .bracket {
+    --col-gap: 22px;
+    padding-right: 96px;
+  }
+}

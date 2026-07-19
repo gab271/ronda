@@ -1,0 +1,33 @@
+/**
+ * The single global stylesheet. src/main.tsx imports this file and nothing else;
+ * every other stylesheet in the app is a CSS Module scoped to one component.
+ *
+ * Import order matters: primitives define the raw values, semantic maps them to
+ * roles, themes override roles conditionally. Reversing any two silently breaks
+ * theming.
+ */
+
+@import './tokens/primitives.css';
+@import './tokens/semantic.css';
+@import './tokens/theme-dark.css';
+@import './tokens/theme-contrast.css';
+@import './reset.css';
+@import './typography.css';
+
+/* Court-line rule: the shared structural device. Not a hairline — see
+   primitives.css for why there is no 1px option. */
+.courtRule {
+  height: var(--line-thin);
+  background-color: var(--color-border-strong);
+  border: 0;
+}
+
+/* Page container. max-width is in ch rather than px so it tracks the type
+   scale; Spanish runs ~15-20% longer than English and the measure should not
+   need adjusting per language. */
+.container {
+  width: 100%;
+  max-width: 68ch;
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+}

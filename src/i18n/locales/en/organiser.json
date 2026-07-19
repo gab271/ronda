@@ -1,0 +1,21 @@
+{
+  "dashboard": {
+    "title": "Your tournaments",
+    "empty": {
+      "title": "You haven't created a tournament yet",
+      "body": "Create one, add the participants, and Cuadro generates every match.",
+      "action": "Create tournament"
+    }
+  },
+  "nav": {
+    "tournaments": "Tournaments",
+    "club": "Club",
+    "account": "Account"
+  },
+  "error": {
+    "loadFailed": {
+      "title": "We couldn't load your tournaments",
+      "body": "The connection to the server failed. Try again."
+    }
+  }
+}

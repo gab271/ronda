@@ -1,0 +1,65 @@
+.page {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+  padding: var(--space-5) var(--space-4);
+  background-color: var(--color-bg);
+}
+
+.card {
+  width: 100%;
+  max-width: 26rem;
+  padding: var(--space-6);
+  background-color: var(--color-surface);
+  border: var(--line-thin) solid var(--color-border);
+  border-radius: var(--radius-3);
+}
+
+/* The court-line motif at its smallest: a heavy blue rule above the title, the
+   way a service line sits above the box. */
+.mark {
+  width: var(--space-7);
+  height: var(--line-heavy);
+  margin-bottom: var(--space-4);
+  background-color: var(--color-brand);
+}
+
+.title {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-1);
+}
+
+.subtitle {
+  margin-bottom: var(--space-6);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-muted);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.formError {
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-negative);
+  background-color: var(--color-negative-soft);
+  border-left: var(--line-heavy) solid var(--color-negative);
+  border-radius: var(--radius-2);
+}
+
+.footer {
+  margin-top: var(--space-5);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.link {
+  color: var(--color-brand);
+  font-weight: var(--weight-semibold);
+}

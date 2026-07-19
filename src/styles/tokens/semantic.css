@@ -1,0 +1,114 @@
+/**
+ * LAYER 2 — SEMANTIC ALIASES
+ *
+ * The only colour vocabulary components are allowed to speak. Every token here
+ * names a ROLE ("the colour of a border") rather than a value ("blue 600"), so
+ * themes and club branding can redefine roles without any component knowing.
+ *
+ * Defaults below are the LIGHT theme, which is also the public page's permanent
+ * default — see theme-dark.css for why the public page does not follow the OS
+ * colour scheme.
+ */
+
+:root {
+  /* ── Surfaces ───────────────────────────────────────────────────────────── */
+  --color-bg: var(--c-paper-50);
+  --color-surface: var(--c-white);
+  --color-surface-raised: var(--c-white);
+  --color-surface-sunken: var(--c-paper-100);
+  --color-surface-inverse: var(--c-blue-800);
+
+  /* ── Text ───────────────────────────────────────────────────────────────────
+     --color-text on --color-bg is ~15:1 (target is AAA 7:1, not AA 4.5:1).
+     --color-text-muted is ~5.5:1 and MUST be used at weight 500 or above.
+     Light-weight grey metadata is the number one sunlight failure and the
+     default that nearly every UI kit ships. */
+  --color-text: var(--c-ink-900);
+  --color-text-muted: var(--c-ink-500);
+  --color-text-inverse: var(--c-white);
+  --color-text-on-brand: var(--c-white);
+
+  /* ── Brand ──────────────────────────────────────────────────────────────────
+     These four are the club-branding override surface (milestone 7). A club's
+     custom palette is applied by redefining exactly these on :root — nothing
+     else. Keep that promise: do not add a fifth brand token without checking it
+     can be derived or safely defaulted. */
+  --color-brand: var(--c-blue-800);
+  --color-brand-strong: var(--c-blue-900);
+  --color-brand-soft: var(--c-blue-100);
+  --color-brand-contrast: var(--c-white);
+
+  --color-accent: var(--c-blue-600);
+  --color-accent-soft: var(--c-blue-50);
+
+  /* ── Court lines — the structural device ────────────────────────────────────
+     Borders are structure, not decoration. --color-border is ≥3:1 against both
+     --color-bg and --color-surface so it stays visible in direct sun. */
+  --color-border: var(--c-ink-200);
+  --color-border-strong: var(--c-ink-700);
+  --color-line-court: var(--c-white); /* white markings on blue fills */
+
+  /* ── Live state ─────────────────────────────────────────────────────────────
+     Optic yellow means "in progress", nothing else. Note --color-live-text is a
+     dark yellow, not the ball yellow: #d8f034 on white is ~1.4:1 and illegible.
+     The bright value is a FILL; the dark value is for TEXT. Conflating them is
+     the mistake this pair exists to prevent. */
+  --color-live: var(--c-yellow-400);
+  --color-live-text: var(--c-yellow-700);
+  --color-live-contrast: var(--c-ink-900);
+
+  /* ── The court field ────────────────────────────────────────────────────────
+     A padel court is a saturated blue box with hard white lines. These tokens
+     describe standing ON that surface — used by the landing hero and by the
+     bracket, which is drawn as court markings rather than as boxes.
+
+     Deliberately NOT the same as --color-brand: brand is the colour of a header
+     band on a light page, this is a whole field you look down at. Separating
+     them means club branding (milestone 7) can recolour the chrome without
+     turning the court a colour no padel court has ever been. */
+  --color-court: var(--c-blue-800);
+  --color-court-deep: var(--c-blue-900);
+  --color-court-raised: var(--c-blue-700);
+  --color-court-text: var(--c-white);
+  --color-court-text-muted: var(--c-blue-300);
+  /* Faint markings: the service and centre lines, present but not shouting. */
+  --color-court-line-faint: rgb(255 255 255 / 12%);
+  --color-court-line-ghost: rgb(255 255 255 / 6%);
+  --color-court-fill: rgb(255 255 255 / 5%);
+  --color-court-fill-raised: rgb(255 255 255 / 9%);
+
+  /* Depth for the hero field. Two off-centre pools of light, the way a court
+     reads under floodlights — not a decorative mesh gradient. */
+  --gradient-court: radial-gradient(
+      ellipse 70% 50% at 22% 8%,
+      rgb(27 108 168 / 55%),
+      transparent 60%
+    ),
+    radial-gradient(ellipse 60% 60% at 88% 92%, rgb(19 84 143 / 45%), transparent 62%);
+
+  /* Fade that hints the bracket scrolls sideways on a narrow screen. */
+  --gradient-court-edge: linear-gradient(to right, transparent, var(--c-blue-800));
+
+  /* ── Status ─────────────────────────────────────────────────────────────── */
+  --color-positive: var(--c-green-600);
+  --color-positive-soft: var(--c-green-100);
+  --color-negative: var(--c-red-600);
+  --color-negative-soft: var(--c-red-100);
+  --color-warning: var(--c-amber-600);
+  --color-warning-soft: var(--c-amber-100);
+
+  /* ── Focus ──────────────────────────────────────────────────────────────────
+     A single, loud, always-visible focus ring. Keyboard accessibility is a
+     stated requirement, and a 2px ring in brand blue disappears against blue
+     headers — so focus uses a high-contrast dark ring plus a white outer halo
+     that works on any background. */
+  --color-focus: var(--c-ink-900);
+  --color-focus-halo: var(--c-white);
+  --focus-ring-width: var(--line-thick);
+  --focus-ring-offset: 2px;
+
+  /* ── Typography roles ───────────────────────────────────────────────────── */
+  --font-display: 'Archivo Variable', 'Archivo', system-ui, sans-serif;
+  --font-body: 'Archivo Variable', 'Archivo', system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', 'Roboto Mono', monospace;
+}
