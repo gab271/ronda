@@ -54,6 +54,9 @@
   --c-green-600: #10725a;
   --c-green-100: #d3ece4;
   --c-red-600: #b3261e;
+  /* Pressed/hover state for destructive actions. Dark enough to stay above 7:1
+     on white in sunlight, which the 600 only just clears. */
+  --c-red-700: #8c1d18;
   --c-red-100: #f8dedc;
   --c-amber-600: #8a5a00;
   --c-amber-100: #fbeacd;

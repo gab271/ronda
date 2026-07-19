@@ -51,6 +51,44 @@
     "madrid": "Mainland and Balearics",
     "canary": "Canary Islands"
   },
+  "detail": {
+    "back": "Back to your tournaments",
+    "participants": {
+      "title": "Participants",
+      "label": "Paste the list",
+      "placeholder": "1. Juan and María\n2. Pedro and Ana\nCarlos and Laura",
+      "hint": "One pair per line. Put the seed number in front with a dot to seed the draw.",
+      "save": "Save participants",
+      "saving": "Saving…",
+      "count_one": "{{count}} participant",
+      "count_other": "{{count}} participants",
+      "duplicates_one": "Removed {{count}} duplicate: {{names}}",
+      "duplicates_other": "Removed {{count}} duplicates: {{names}}",
+      "repeatedSeeds": "Seed {{seeds}} is used more than once. The order between them will be drawn at random.",
+      "locked": "Matches have already been generated. Regenerate them if you change the list."
+    },
+    "fixtures": {
+      "title": "Matches",
+      "generate": "Generate matches",
+      "generating": "Generating…",
+      "regenerate": "Generate again",
+      "count_one": "{{count}} match generated",
+      "count_other": "{{count}} matches generated",
+      "empty": "No matches yet. Add the participants and generate the draw.",
+      "resultsWarning": "{{count}} result(s) have already been entered. Generating again discards them.",
+      "confirm": "Generate again and lose the results",
+      "cancel": "Leave it as it is"
+    },
+    "publish": {
+      "title": "Public link",
+      "action": "Publish",
+      "publishing": "Publishing…",
+      "hint": "Once published, anyone with the link can see the tournament. No account, nothing to install.",
+      "needFixtures": "Generate the matches before publishing.",
+      "copy": "Copy link",
+      "copied": "Copied"
+    }
+  },
   "nav": {
     "tournaments": "Tournaments",
     "club": "Club",
@@ -61,6 +99,7 @@
       "title": "We couldn't load your tournaments",
       "body": "The connection to the server failed. Try again."
     },
+    "actionFailed": "That didn't work. Try again.",
     "nameRequired": "Give the tournament a name.",
     "createFailed": "We couldn't create the tournament. Try again.",
     "noClub": "Your account has no club attached. Get in touch and we'll fix it."

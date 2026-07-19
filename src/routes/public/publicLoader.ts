@@ -11,7 +11,7 @@ export interface PublicLoaderData {
  * Loader for the public tournament page.
  *
  * ── The hydration seam ──────────────────────────────────────────────────────
- * The `window.__CUADRO_DATA__` check is the whole reason this is written now
+ * The `window.__RONDA_DATA__` check is the whole reason this is written now
  * rather than in milestone 4. When the public page moves to edge rendering, the
  * Cloudflare Function will inline the tournament JSON into the HTML it returns;
  * this loader will find it already present and skip the network entirely. The
@@ -35,7 +35,7 @@ export async function publicLoader({
     return { tournament: null, errorKind: 'not-found' }
   }
 
-  const inlined = typeof window !== 'undefined' ? window.__CUADRO_DATA__ : undefined
+  const inlined = typeof window !== 'undefined' ? window.__RONDA_DATA__ : undefined
   if (inlined && inlined.publicSlug === slug) {
     return { tournament: inlined, errorKind: null }
   }

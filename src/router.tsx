@@ -97,6 +97,15 @@ export const router = createBrowserRouter([
           Component: async () => (await import('./routes/organiser/NewTournamentRoute')).default,
         },
       },
+      // Declared after /nuevo so the literal segment wins over the :id param.
+      {
+        path: '/panel/torneos/:id',
+        lazy: {
+          loader: async () => (await import('./routes/organiser/requireSession')).requireSession,
+          Component: async () =>
+            (await import('./routes/organiser/TournamentDetailRoute')).default,
+        },
+      },
     ],
   },
 

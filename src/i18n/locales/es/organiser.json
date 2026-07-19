@@ -51,6 +51,44 @@
     "madrid": "Península y Baleares",
     "canary": "Canarias"
   },
+  "detail": {
+    "back": "Volver a tus torneos",
+    "participants": {
+      "title": "Participantes",
+      "label": "Pega la lista",
+      "placeholder": "1. Juan y María\n2. Pedro y Ana\nCarlos y Laura",
+      "hint": "Una pareja por línea. Pon el número de cabeza de serie delante con un punto si quieres sembrar el cuadro.",
+      "save": "Guardar participantes",
+      "saving": "Guardando…",
+      "count_one": "{{count}} participante",
+      "count_other": "{{count}} participantes",
+      "duplicates_one": "Hemos quitado {{count}} repetido: {{names}}",
+      "duplicates_other": "Hemos quitado {{count}} repetidos: {{names}}",
+      "repeatedSeeds": "El número {{seeds}} está repetido. El orden entre ellos saldrá a suertes.",
+      "locked": "Ya hay partidos generados. Vuelve a generarlos si cambias la lista."
+    },
+    "fixtures": {
+      "title": "Partidos",
+      "generate": "Generar partidos",
+      "generating": "Generando…",
+      "regenerate": "Volver a generar",
+      "count_one": "{{count}} partido generado",
+      "count_other": "{{count}} partidos generados",
+      "empty": "Todavía no hay partidos. Añade a los participantes y genera el cuadro.",
+      "resultsWarning": "Ya hay {{count}} resultado(s) metidos. Si vuelves a generar, se pierden.",
+      "confirm": "Generar de nuevo y perder los resultados",
+      "cancel": "Dejarlo como está"
+    },
+    "publish": {
+      "title": "Enlace público",
+      "action": "Publicar",
+      "publishing": "Publicando…",
+      "hint": "Al publicar, cualquiera con el enlace puede ver el torneo. Sin cuenta y sin instalar nada.",
+      "needFixtures": "Genera los partidos antes de publicar.",
+      "copy": "Copiar enlace",
+      "copied": "Copiado"
+    }
+  },
   "nav": {
     "tournaments": "Torneos",
     "club": "Club",
@@ -61,6 +99,7 @@
       "title": "No hemos podido cargar tus torneos",
       "body": "Ha fallado la conexión con el servidor. Vuelve a intentarlo."
     },
+    "actionFailed": "No ha salido bien. Vuelve a intentarlo.",
     "nameRequired": "Ponle un nombre al torneo.",
     "createFailed": "No hemos podido crear el torneo. Inténtalo de nuevo.",
     "noClub": "Tu cuenta no tiene ningún club asociado. Escríbenos y lo arreglamos."

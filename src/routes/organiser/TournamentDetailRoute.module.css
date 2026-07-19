@@ -1,0 +1,130 @@
+.page {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-4) var(--space-7);
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-brand);
+}
+
+.header {
+  margin-bottom: var(--space-6);
+}
+
+.title {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-2);
+}
+
+/* Status is never colour alone: the word is always present. */
+.status {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  border-radius: var(--radius-1);
+  background-color: var(--color-surface-sunken);
+  color: var(--color-text);
+}
+
+.statusPublished {
+  background-color: var(--color-positive-soft);
+  color: var(--color-positive);
+}
+
+.section {
+  padding-top: var(--space-6);
+  margin-top: var(--space-6);
+  border-top: var(--line-heavy) solid var(--color-border);
+}
+
+.sectionTitle {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-3);
+}
+
+.hint {
+  margin-bottom: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-muted);
+}
+
+.textarea {
+  width: 100%;
+  min-height: 12rem;
+  padding: var(--space-3);
+  font: inherit;
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: var(--line-thin) solid var(--color-border);
+  border-radius: var(--radius-2);
+  resize: vertical;
+}
+
+.textarea:focus-visible {
+  outline: var(--line-heavy) solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.textarea:disabled {
+  background-color: var(--color-surface-sunken);
+  color: var(--color-text-muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.notice {
+  padding: var(--space-3) var(--space-4);
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text);
+  background-color: var(--color-surface-sunken);
+  border-left: var(--line-heavy) solid var(--color-border);
+  border-radius: var(--radius-2);
+}
+
+.noticeWarning {
+  color: var(--color-negative);
+  background-color: var(--color-negative-soft);
+  border-left-color: var(--color-negative);
+}
+
+.noticeError {
+  padding: var(--space-3) var(--space-4);
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-negative);
+  background-color: var(--color-negative-soft);
+  border-left: var(--line-heavy) solid var(--color-negative);
+  border-radius: var(--radius-2);
+}
+
+.count {
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+}
+
+.link {
+  display: block;
+  padding: var(--space-3);
+  margin-top: var(--space-3);
+  overflow-wrap: anywhere;
+  font-weight: var(--weight-semibold);
+  color: var(--color-brand);
+  background-color: var(--color-surface-sunken);
+  border-radius: var(--radius-2);
+}

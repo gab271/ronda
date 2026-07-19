@@ -70,7 +70,7 @@ export interface PublicTournament {
  */
 declare global {
   interface Window {
-    __CUADRO_DATA__?: PublicTournament
+    __RONDA_DATA__?: PublicTournament
   }
 }
 

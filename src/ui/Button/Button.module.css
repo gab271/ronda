@@ -75,6 +75,22 @@
   border-color: transparent;
 }
 
+/* Danger: for actions that destroy something the organiser cannot get back —
+   discarding entered results, deleting a draw. Deliberately NOT the default in
+   any confirmation pair, and always paired with a label that names the
+   consequence rather than saying "OK", because colour alone is not allowed to
+   carry that meaning. */
+.button[data-variant='danger'] {
+  --btn-bg: var(--color-negative);
+  --btn-fg: var(--color-negative-contrast);
+  --btn-border: var(--color-negative);
+}
+
+.button[data-variant='danger']:hover:not(:disabled) {
+  background-color: var(--color-negative-strong);
+  border-color: var(--color-negative-strong);
+}
+
 .button[data-full='true'] {
   width: 100%;
 }

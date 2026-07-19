@@ -1,4 +1,4 @@
-# Roadmap
+﻿# Roadmap
 
 Read `CLAUDE.md` first for constraints, stack traps and enforced boundaries.
 
@@ -34,6 +34,45 @@ inline, en lazy, typed keys), Supabase client + the separate public fetch client
 | `allocation.ts` | Courts × time slots, no double-booking, precedence, minimum rest, waiting-time minimisation |
 | `resolve.ts` | Slot resolution, bye propagation, topological ordering, bracket simulation |
 
+### ✅ Milestone 3 — Tournament creation
+
+Sign-up (`/registro`), creation, participants, fixtures, publish.
+
+| Module | What it does |
+| --- | --- |
+| `lib/slug.ts` | nanoid-style 10 chars over a 32-symbol alphabet. 32 is what makes the byte reduction unbiased (`256 % 32 == 0`); at 36 the first four characters would be quietly likelier. Uses `crypto.getRandomValues`, never `createRng` — slugs must NOT be reproducible. |
+| `data/tournaments/parseParticipants.ts` | Paste-a-list entry. Mixed separators, CRLF from Excel, seeds four ways. Duplicates matched ignoring case and accents. |
+| `data/tournaments/generateFixture.ts` | Format → generator, with the draw order seeded from `draw_seed`. |
+| `data/tournaments/fixtureRows.ts` | Engine output → `stages`/`rounds`/`matches`. Pure, so cross-references are tested without a database. |
+| `data/tournaments/tournamentsRepo.ts` | Every authenticated write. |
+
+Two corrections to what this section originally said:
+
+- **The slug is minted at creation, not at publish.** `public_slug` is `NOT
+  NULL`, so a draft cannot exist without one. Publishing only flips `status`
+  and stamps `published_at`, which means a link shared before publishing starts
+  working rather than breaking. Drafts stay unreachable because
+  `get_public_tournament()` refuses any status other than
+  published/in_progress/finished.
+- **Regeneration refuses rather than warns** when results exist, and takes an
+  explicit `force`. Scores are entered courtside and cannot be reconstructed
+  from anything, so a dialog with a default was the wrong shape.
+
+`database.types.ts` is now the full schema but is **hand-derived** from
+`0001_init.sql`, because `supabase gen types` needs a browser login. Replace it
+wholesale once someone has run `npx supabase login`:
+
+```bash
+npx supabase gen types typescript --project-id dqaebxpfztjwqewdxuwt \
+  > src/data/supabase/database.types.ts
+```
+
+**The database stores structure, not prose.** Slots persist as
+`{"kind": "winner_of", "match_id": …}`, never `"Ganador C1"`; groups are named
+`"A"`, not `"Grupo A"`; round names are null and derived at render. Fixtures are
+generated once by one organiser in whatever language they were using, but the
+public page is read by 20–60 people who each have their own.
+
 ### ✅ Landing page (out of original order)
 
 `src/routes/landing/`. Court-blue hero with a bracket that fills itself in.
@@ -43,29 +82,6 @@ Imports no auth code and no supabase-js. Payload ~119 kB gz.
 
 ## Remaining
 
-### ⬜ Milestone 3 — Tournament creation
-
-The first real organiser workflow. Everything behind auth.
-
-- Create a tournament: name, sport, format, dates, timezone (**must support
-  `Atlantic/Canary`**, not just `Europe/Madrid` — an hour's difference produces
-  wrong match times for real users).
-- Add participants: pairs, teams or individuals. Paste-a-list bulk entry, since
-  that is how organisers actually have their data. Seeds optional.
-- Generate fixtures by calling `src/engine/` and persisting the result.
-  Persist `draw_seed` so the draw can be regenerated identically.
-- Regenerate must warn if results already exist — regenerating orphans them.
-- Publish: `draft` → `published`, mint the `public_slug`.
-- Slug generation: **nanoid(10) excluding ambiguous characters** (`0/O`, `1/l/I`)
-  — people read these aloud at clubs.
-
-Also here: **generate the real `database.types.ts`**. The committed file is a
-hand-written placeholder covering only `profiles` and `clubs`.
-
-```bash
-npx supabase gen types typescript --project-id <ref> > src/data/supabase/database.types.ts
-```
-
 ### ⬜ Milestone 4 — The public tournament page
 
 The storefront. Make this genuinely excellent; it is what sells the product.
@@ -74,7 +90,7 @@ The storefront. Make this genuinely excellent; it is what sells the product.
 - Reuse the landing page's bracket rendering; it was built to be reused.
 - **Edge-render via Cloudflare Pages Functions.** The seams are already in
   place: `publicClient.ts` runs unmodified in a Worker, and `publicLoader.ts`
-  reads `window.__CUADRO_DATA__` if present, so the client diff is zero lines.
+  reads `window.__RONDA_DATA__` if present, so the client diff is zero lines.
   Add `HydrateFallback` — React Router warns without one.
 - **Poll every 25–30s, gated on `document.visibilityState`. No realtime.** The
   free tier caps at 200 concurrent connections and WebSockets reconnect-storm on
@@ -119,15 +135,33 @@ tournaments, so it can be built to HTML for instant paint and real SEO.
 
 ---
 
+## Blocking — do these first
+
+- **`0002_match_condition.sql` is not applied.** Adds `matches.condition`.
+  Without it, persisting a double-elimination draw fails: the grand-final
+  decider carries a condition and there is nowhere to put it. The code is
+  already written against the column.
+- **The repository has never run against the live database.**
+  `tournamentsRepo.ts` is typed against the real schema and unit-tested against
+  a mocked client, which proves call shapes and branching but NOT that RLS
+  admits the queries. `report_score()` is the precedent: correct by reasoning,
+  and still wrong until it was called. Run one real
+  create → participants → generate → publish cycle before trusting any of it.
+- **Email confirmation is on**, and Supabase's built-in SMTP does ~2–4/hour.
+  Turn it off for development, or configure Resend/Brevo.
+
 ## Loose ends, any milestone
 
-- **Landing page links to routes that do not exist**: `/registro`, `/contacto`,
-  `/terminos`, and `/t/ejemplo`. All currently hit `NotFoundRoute`. `/registro`
-  is the most urgent — it is the primary CTA.
+- **Milestone 4 needs a migration for slot labels.** `get_public_tournament()`
+  exposes `home_source ->> 'label'` as `homeLabel`, but nothing writes a label —
+  the source is structural on purpose, so the public page can render in the
+  reader's language. The RPC must expose `kind` and the reference instead.
+  Cheaper now than after the page is written against the old shape.
+- **Landing page links to routes that do not exist**: `/contacto`, `/terminos`,
+  and `/t/ejemplo`. All currently hit `NotFoundRoute`.
 - **Archivo font is not installed.** `public/fonts/archivo-variable-latin.woff2`
   is missing, so everything falls back to `system-ui`. See README for the
   subsetting command. The design assumes the width axis and tabular figures.
-- **Sign-up flow does not exist.** Only sign-in is built.
 - **Supabase pauses after ~7 days idle.** A dead tournament link is the worst
   possible storefront failure and it is invisible in development. Add a free
   Cloudflare Cron Trigger before any real use.
@@ -136,4 +170,3 @@ tournaments, so it can be built to HTML for instant paint and real SEO.
 - **`report_score()` has never been executed.** Its PL/pgSQL was fixed by
   reasoning, and static parsing does not catch `INTO` arity bugs. Exercise it
   properly in milestone 5.
-- Decide the name (see `CLAUDE.md`). Cheapest now.

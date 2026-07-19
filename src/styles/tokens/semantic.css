@@ -94,6 +94,8 @@
   --color-positive-soft: var(--c-green-100);
   --color-negative: var(--c-red-600);
   --color-negative-soft: var(--c-red-100);
+  --color-negative-strong: var(--c-red-700);
+  --color-negative-contrast: var(--c-white);
   --color-warning: var(--c-amber-600);
   --color-warning-soft: var(--c-amber-100);
 

@@ -52,6 +52,10 @@
   --color-positive-soft: #0c3d33;
   --color-negative: #ff9c94;
   --color-negative-soft: #4d1512;
+  /* Inverted like brand: on a dark field the emphatic state is LIGHTER, and the
+     foreground on a light-red fill has to be ink, not white. */
+  --color-negative-strong: #ffb8b2;
+  --color-negative-contrast: var(--c-ink-900);
   --color-warning: #e8b45c;
   --color-warning-soft: #43300c;
 
