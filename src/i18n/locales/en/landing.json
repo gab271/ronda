@@ -7,7 +7,7 @@
   "hero": {
     "eyebrow": "Padel · 7-a-side · Basketball · Chess",
     "title": "The draw makes itself",
-    "lead": "Add the pairs, pick a format, and Cuadro generates every match. Share one link and each player sees when they play, against whom, and on which court.",
+    "lead": "Add the pairs, pick a format, and Ronda generates every match. Share one link and each player sees when they play, against whom, and on which court.",
     "primary": "Create a tournament",
     "secondary": "See an example tournament",
     "note": "Free for one active tournament. Your players never need an account."
@@ -26,7 +26,7 @@
       "body": "Forty people in a group chat. A photo of a hand-drawn bracket that is already out of date. Three messages asking what time they play. And you, rubbing out and redrawing boxes between matches."
     },
     "new": {
-      "title": "How it works with Cuadro",
+      "title": "How it works with Ronda",
       "body": "One link. Every player opens it and sees their next match, the court and the time. You enter a result and the bracket, the standings and the schedule update for everyone at once."
     }
   },
@@ -36,11 +36,11 @@
     "steps": {
       "one": {
         "title": "Add the participants",
-        "body": "Pairs, teams or individual players. Paste the list and Cuadro sorts it out."
+        "body": "Pairs, teams or individual players. Paste the list and Ronda sorts it out."
       },
       "two": {
         "title": "Pick the format",
-        "body": "Cuadro works out the pairings, places the seeds, distributes the byes and orders the rounds."
+        "body": "Ronda works out the pairings, places the seeds, distributes the byes and orders the rounds."
       },
       "three": {
         "title": "Share the link",
@@ -106,7 +106,7 @@
   "footer": {
     "tagline": "Club tournaments, without the hassle.",
     "product": "Product",
-    "company": "Cuadro",
+    "company": "Ronda",
     "formats": "Formats",
     "pricing": "Pricing",
     "signIn": "Sign in",

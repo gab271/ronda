@@ -3,7 +3,7 @@
     "title": "Your tournaments",
     "empty": {
       "title": "You haven't created a tournament yet",
-      "body": "Create one, add the participants, and Cuadro generates every match.",
+      "body": "Create one, add the participants, and Ronda generates every match.",
       "action": "Create tournament"
     }
   },

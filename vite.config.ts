@@ -18,7 +18,7 @@ import react from '@vitejs/plugin-react'
  */
 function supabasePreconnect(supabaseUrl: string): Plugin {
   return {
-    name: 'cuadro:supabase-preconnect',
+    name: 'ronda:supabase-preconnect',
     transformIndexHtml() {
       if (!supabaseUrl) return []
       let origin: string

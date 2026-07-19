@@ -6,7 +6,7 @@ import jsxA11y from 'eslint-plugin-jsx-a11y'
 import i18next from 'eslint-plugin-i18next'
 
 /**
- * Cuadro lint configuration.
+ * Ronda lint configuration.
  *
  * This file exists mostly to enforce three architectural boundaries that are
  * otherwise unenforceable and expensive to repair once violated:

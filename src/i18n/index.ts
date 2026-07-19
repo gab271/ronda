@@ -36,7 +36,7 @@ export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number]
 export const DEFAULT_LANGUAGE: SupportedLanguage = 'es'
 export const DEFAULT_NS = 'common'
 
-const STORAGE_KEY = 'cuadro.lang'
+const STORAGE_KEY = 'ronda.lang'
 
 function isSupported(value: string | null | undefined): value is SupportedLanguage {
   return (

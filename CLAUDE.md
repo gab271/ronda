@@ -1,4 +1,4 @@
-# Cuadro — working notes
+# Ronda — working notes
 
 Tournament and league management for amateur sport in Spain. Padel first, plus
 football 7, basketball and chess.
@@ -8,8 +8,14 @@ generates the whole fixture list deterministically. They share **one** public
 link. Players open it on a phone — no account, no install — and see when they
 play, against whom, on which court. Results go in; standings and brackets update.
 
-> **Naming:** the folder is `Ronda`, the code says `Cuadro`. This is unresolved —
-> see "Open decisions" below. Do not rename anything without asking.
+> **Naming — settled 2026-07-19.** The app is **Ronda**, everywhere. The old name
+> `Cuadro` is gone from the code.
+>
+> One rule survives the rename: **"cuadro" is still the Spanish domain word for a
+> draw sheet**, and Spanish copy uses it as a common noun ("el cuadro se hace
+> solo", "cuadro de ganadores"). Those are vocabulary, not leftovers — do not
+> "finish the rename" by replacing them. Only capitalised `Cuadro` standing in
+> for the product name was branding, and none of that remains.
 
 ---
 
@@ -138,7 +144,13 @@ touches the database works until it is run.
 
 ## Open decisions
 
-- **The name.** `Ronda` (folder) vs `Cuadro` (code). Recommendation is Ronda:
-  "cuadro" is the generic Spanish word for a draw sheet, which makes it
-  ambiguous in conversation, hard to trademark and hard to search. Rename is
-  ~30 minutes now and expensive once real tournaments exist.
+_None currently._
+
+Settled:
+
+- **The name — Ronda** (2026-07-19). `Cuadro` was ambiguous with the generic
+  Spanish word for a draw sheet: hard to trademark, hard to search, confusing in
+  conversation. Done before any real tournament existed, which is what kept it
+  cheap. The two localStorage keys moved with it (`cuadro.auth` → `ronda.auth`,
+  `cuadro.lang` → `ronda.lang`), so any session predating the rename is signed
+  out — irrelevant now, but the reason no one's session survived.

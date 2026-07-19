@@ -63,7 +63,7 @@ describe('SignInRoute', () => {
   it('renders in Spanish by default', async () => {
     await renderSignIn()
 
-    expect(screen.getByRole('heading', { name: 'Entrar en Cuadro' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Entrar en Ronda' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Entrar' })).toBeInTheDocument()
   })
 
@@ -97,6 +97,6 @@ describe('SignInRoute', () => {
   it('renders in English when that language is active', async () => {
     await renderSignIn('en')
 
-    expect(screen.getByRole('heading', { name: 'Sign in to Cuadro' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Sign in to Ronda' })).toBeInTheDocument()
   })
 })

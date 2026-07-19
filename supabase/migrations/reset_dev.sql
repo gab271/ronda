@@ -1,7 +1,7 @@
 -- =============================================================================
 -- ⚠️  DESTRUCTIVE — DEVELOPMENT ONLY  ⚠️
 --
--- Drops every Cuadro object so 0001_init.sql can be applied to a clean slate.
+-- Drops every Ronda object so 0001_init.sql can be applied to a clean slate.
 -- THIS DELETES ALL TOURNAMENT DATA. Never run it against a database that has
 -- real clubs or tournaments in it.
 --

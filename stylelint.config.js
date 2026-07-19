@@ -1,5 +1,5 @@
 /**
- * Cuadro stylelint configuration.
+ * Ronda stylelint configuration.
  *
  * The rule that matters here is the colour-literal ban in the override block.
  * Everything else is house style.

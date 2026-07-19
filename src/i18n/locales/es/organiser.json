@@ -3,7 +3,7 @@
     "title": "Tus torneos",
     "empty": {
       "title": "Todavía no has creado ningún torneo",
-      "body": "Crea uno, añade a los participantes y Cuadro genera todos los partidos.",
+      "body": "Crea uno, añade a los participantes y Ronda genera todos los partidos.",
       "action": "Crear torneo"
     }
   },

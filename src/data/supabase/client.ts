@@ -10,7 +10,7 @@ import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 import { config } from '~/lib/env'
 import type { Database } from './database.types'
 
-export type CuadroClient = SupabaseClient<Database>
+export type RondaClient = SupabaseClient<Database>
 
 /**
  * Vite's HMR re-executes modules while keeping the old ones alive. Without this
@@ -19,10 +19,10 @@ export type CuadroClient = SupabaseClient<Database>
  * presents as random sign-outs during development and is very hard to attribute.
  */
 const globalRef = globalThis as typeof globalThis & {
-  __cuadroSupabase__?: CuadroClient
+  __rondaSupabase__?: RondaClient
 }
 
-function createCuadroClient(): CuadroClient {
+function createRondaClient(): RondaClient {
   return createClient<Database>(config.supabaseUrl, config.supabaseAnonKey, {
     auth: {
       persistSession: true,
@@ -33,16 +33,16 @@ function createCuadroClient(): CuadroClient {
       // PKCE rather than the implicit flow: the code never lands in the URL
       // fragment where it can leak through history or a Referer header.
       flowType: 'pkce',
-      storageKey: 'cuadro.auth',
+      storageKey: 'ronda.auth',
     },
     global: {
-      headers: { 'x-application-name': 'cuadro' },
+      headers: { 'x-application-name': 'ronda' },
     },
   })
 }
 
-export const supabase: CuadroClient = globalRef.__cuadroSupabase__ ?? createCuadroClient()
+export const supabase: RondaClient = globalRef.__rondaSupabase__ ?? createRondaClient()
 
 if (import.meta.hot) {
-  globalRef.__cuadroSupabase__ = supabase
+  globalRef.__rondaSupabase__ = supabase
 }

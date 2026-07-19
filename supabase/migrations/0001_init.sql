@@ -1,5 +1,5 @@
 -- =============================================================================
--- Cuadro — initial schema
+-- Ronda — initial schema
 --
 -- RE-RUNNABLE. Every statement is idempotent, so applying this twice is safe and
 -- a partially-applied run can simply be re-run. That matters because the

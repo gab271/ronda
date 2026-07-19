@@ -1,9 +1,9 @@
-# Cuadro
+# Ronda
 
 Tournament and league management for amateur sport. Padel first, plus football 7,
 basketball and chess. Spanish-first.
 
-An organiser creates a tournament, adds participants, picks a format, and Cuadro
+An organiser creates a tournament, adds participants, picks a format, and Ronda
 generates the whole fixture list. They share **one** link. Players open it on a
 phone — no account, no install — and see when they play, against whom, on which
 court.
@@ -212,7 +212,7 @@ the failure, not by assuming the config was right.
 ### Design: "Pista"
 
 Grounded in the padel court. A pista is a blue rectangle with hard white lines,
-and those lines carry meaning — they define in and out. Cuadro uses the same
+and those lines carry meaning — they define in and out. Ronda uses the same
 device: dividers, bracket paths and table rules are court lines, solid and high
 contrast. There is deliberately **no 1px border option** in the token system —
 hairlines are invisible in sunlight and are the most common outdoor-legibility

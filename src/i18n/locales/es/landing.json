@@ -7,7 +7,7 @@
   "hero": {
     "eyebrow": "Pádel · Fútbol 7 · Baloncesto · Ajedrez",
     "title": "El cuadro se hace solo",
-    "lead": "Añade las parejas, elige el formato y Cuadro genera todos los partidos. Compartes un enlace y cada jugador ve cuándo juega, contra quién y en qué pista.",
+    "lead": "Añade las parejas, elige el formato y Ronda genera todos los partidos. Compartes un enlace y cada jugador ve cuándo juega, contra quién y en qué pista.",
     "primary": "Crear un torneo",
     "secondary": "Ver un torneo de ejemplo",
     "note": "Gratis para un torneo activo. Tus jugadores no necesitan cuenta."
@@ -26,7 +26,7 @@
       "body": "Cuarenta personas en un grupo. Una foto del cuadro dibujado a mano que ya no vale. Tres mensajes preguntando a qué hora juegan. Y tú, borrando y repintando casillas entre partido y partido."
     },
     "new": {
-      "title": "Como se hace con Cuadro",
+      "title": "Como se hace con Ronda",
       "body": "Un enlace. Cada jugador abre el suyo y ve su próximo partido, la pista y la hora. Metes un resultado y el cuadro, la clasificación y los horarios se actualizan para todos a la vez."
     }
   },
@@ -36,11 +36,11 @@
     "steps": {
       "one": {
         "title": "Añade a los participantes",
-        "body": "Parejas, equipos o jugadores sueltos. Pega la lista y Cuadro la ordena."
+        "body": "Parejas, equipos o jugadores sueltos. Pega la lista y Ronda la ordena."
       },
       "two": {
         "title": "Elige el formato",
-        "body": "Cuadro calcula los emparejamientos, coloca los cabezas de serie, reparte los byes y ordena las rondas."
+        "body": "Ronda calcula los emparejamientos, coloca los cabezas de serie, reparte los byes y ordena las rondas."
       },
       "three": {
         "title": "Comparte el enlace",
@@ -106,7 +106,7 @@
   "footer": {
     "tagline": "Torneos de club, sin complicaciones.",
     "product": "Producto",
-    "company": "Cuadro",
+    "company": "Ronda",
     "formats": "Formatos",
     "pricing": "Precio",
     "signIn": "Entrar",
