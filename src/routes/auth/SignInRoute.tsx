@@ -6,7 +6,7 @@ import { supabase } from '~/data/supabase/client'
 import { toAuthErrorKey, type AuthErrorKey } from '~/features/auth/authErrors'
 import { Button } from '~/ui/Button/Button'
 import { Field } from '~/ui/Field/Field'
-import styles from './SignInRoute.module.css'
+import styles from './AuthCard.module.css'
 
 /**
  * Email + password, not magic link.

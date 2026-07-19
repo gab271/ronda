@@ -1,3 +1,7 @@
+/* Shared by SignInRoute and SignUpRoute.
+   Nothing here is specific to either: the two screens are the same card with
+   different copy, and duplicating it would let them drift apart visually. */
+
 .page {
   display: grid;
   place-items: center;
@@ -48,6 +52,19 @@
   color: var(--color-negative);
   background-color: var(--color-negative-soft);
   border-left: var(--line-heavy) solid var(--color-negative);
+  border-radius: var(--radius-2);
+}
+
+/* Confirmation after sign-up. Mirrors .formError structurally rather than
+   relying on colour alone to carry the difference — the heavy left rule is the
+   shared signal, its colour the variation. */
+.formNotice {
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-positive);
+  background-color: var(--color-positive-soft);
+  border-left: var(--line-heavy) solid var(--color-positive);
   border-radius: var(--radius-2);
 }
 

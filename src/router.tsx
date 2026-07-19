@@ -68,6 +68,13 @@ export const router = createBrowserRouter([
       Component: async () => (await import('./routes/auth/SignInRoute')).default,
     },
   },
+  // The landing page's primary CTA. Spanish URL, matching /entrar and /panel.
+  {
+    path: '/registro',
+    lazy: {
+      Component: async () => (await import('./routes/auth/SignUpRoute')).default,
+    },
+  },
   // The organiser area sits under a layout that provides auth context. Nesting
   // it (rather than mounting AuthProvider at the root) is what keeps supabase-js
   // out of the public route's bundle — see OrganiserLayout.tsx.
