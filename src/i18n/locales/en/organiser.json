@@ -5,7 +5,51 @@
       "title": "You haven't created a tournament yet",
       "body": "Create one, add the participants, and Ronda generates every match.",
       "action": "Create tournament"
-    }
+    },
+    "create": "Create tournament",
+    "draft": "Draft",
+    "published": "Published",
+    "inProgress": "Live",
+    "finished": "Finished",
+    "archived": "Archived"
+  },
+  "new": {
+    "title": "New tournament",
+    "subtitle": "You can change any of this until you publish",
+    "name": "Tournament name",
+    "namePlaceholder": "Spring tournament",
+    "sport": "Sport",
+    "format": "Format",
+    "timezone": "Time zone",
+    "timezoneHint": "Sets the time each player sees. The Canaries are an hour behind.",
+    "startsOn": "Starts",
+    "endsOn": "Ends",
+    "datesHint": "Optional. You can add these later.",
+    "submit": "Create tournament",
+    "submitting": "Creating…",
+    "cancel": "Cancel"
+  },
+  "sport": {
+    "padel": "Padel",
+    "futbol7": "Football 7",
+    "baloncesto": "Basketball",
+    "ajedrez": "Chess"
+  },
+  "format": {
+    "round_robin": "Round robin",
+    "round_robinHint": "Everyone plays everyone. Good if there's time and not too many of you.",
+    "single_elim": "Knockout",
+    "single_elimHint": "Lose and you're out. The quickest format.",
+    "double_elim": "Double elimination",
+    "double_elimHint": "Nobody goes home after one defeat. Needs more courts.",
+    "groups_knockout": "Groups then knockout",
+    "groups_knockoutHint": "Groups first, then the bracket. The usual shape for a one-day event.",
+    "swiss": "Swiss",
+    "swissHint": "Each round pairs you with someone at your level. For a big field and little time."
+  },
+  "timezone": {
+    "madrid": "Mainland and Balearics",
+    "canary": "Canary Islands"
   },
   "nav": {
     "tournaments": "Tournaments",
@@ -16,6 +60,9 @@
     "loadFailed": {
       "title": "We couldn't load your tournaments",
       "body": "The connection to the server failed. Try again."
-    }
+    },
+    "nameRequired": "Give the tournament a name.",
+    "createFailed": "We couldn't create the tournament. Try again.",
+    "noClub": "Your account has no club attached. Get in touch and we'll fix it."
   }
 }

@@ -1,0 +1,137 @@
+.page {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-4) var(--space-7);
+}
+
+.mark {
+  width: var(--space-7);
+  height: var(--line-heavy);
+  margin-bottom: var(--space-4);
+  background-color: var(--color-brand);
+}
+
+.title {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-1);
+}
+
+.subtitle {
+  margin-bottom: var(--space-6);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-muted);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.formError {
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-negative);
+  background-color: var(--color-negative-soft);
+  border-left: var(--line-heavy) solid var(--color-negative);
+  border-radius: var(--radius-2);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.legend {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+}
+
+.hint {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-muted);
+}
+
+/* Radio cards rather than a <select>: the format choice is the one decision an
+   organiser is least sure about, and a native select hides the explanations
+   behind a tap. Meaning is never carried by colour alone — the selected card
+   is marked by a heavy left rule as well as its background. */
+.options {
+  display: grid;
+  gap: var(--space-3);
+}
+
+/* Grid rather than nested spans so the label's text sits one level below the
+   <label> itself. jsx-a11y/label-has-associated-control only looks two deep,
+   and a wrapper span put the text out of its reach — the control was reachable
+   in a browser but unverifiable by the linter. */
+.option {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-1) var(--space-3);
+  align-items: start;
+  /* Comfortably past the 48px touch minimum, on a page used one-handed. */
+  min-height: 3.5rem;
+  padding: var(--space-4);
+  background-color: var(--color-surface);
+  border: var(--line-thin) solid var(--color-border);
+  border-left: var(--line-heavy) solid var(--color-border);
+  border-radius: var(--radius-2);
+  cursor: pointer;
+}
+
+.option:hover {
+  border-color: var(--color-brand);
+}
+
+.option:focus-within {
+  outline: var(--line-heavy) solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.optionSelected {
+  border-left-color: var(--color-brand);
+  background-color: var(--color-brand-soft);
+}
+
+.optionInput {
+  width: var(--space-5);
+  height: var(--space-5);
+  margin-top: 2px;
+  accent-color: var(--color-brand);
+  /* Spans both text rows so it stays aligned with the label, not the hint. */
+  grid-row: 1 / -1;
+  align-self: start;
+}
+
+.optionLabel {
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+}
+
+.optionHint {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-muted);
+}
+
+.row {
+  display: grid;
+  gap: var(--space-4);
+}
+
+@media (width >= 30rem) {
+  .row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}

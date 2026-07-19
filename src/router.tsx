@@ -90,6 +90,13 @@ export const router = createBrowserRouter([
           Component: async () => (await import('./routes/organiser/DashboardRoute')).default,
         },
       },
+      {
+        path: '/panel/torneos/nuevo',
+        lazy: {
+          loader: async () => (await import('./routes/organiser/requireSession')).requireSession,
+          Component: async () => (await import('./routes/organiser/NewTournamentRoute')).default,
+        },
+      },
     ],
   },
 

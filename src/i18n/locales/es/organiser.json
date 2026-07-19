@@ -5,7 +5,51 @@
       "title": "Todavía no has creado ningún torneo",
       "body": "Crea uno, añade a los participantes y Ronda genera todos los partidos.",
       "action": "Crear torneo"
-    }
+    },
+    "create": "Crear torneo",
+    "draft": "Borrador",
+    "published": "Publicado",
+    "inProgress": "En juego",
+    "finished": "Terminado",
+    "archived": "Archivado"
+  },
+  "new": {
+    "title": "Nuevo torneo",
+    "subtitle": "Puedes cambiarlo todo hasta que lo publiques",
+    "name": "Nombre del torneo",
+    "namePlaceholder": "Torneo de primavera",
+    "sport": "Deporte",
+    "format": "Formato",
+    "timezone": "Zona horaria",
+    "timezoneHint": "Decide la hora que ve cada jugador. Canarias va una hora por detrás.",
+    "startsOn": "Empieza",
+    "endsOn": "Termina",
+    "datesHint": "Opcional. Puedes ponerlas más tarde.",
+    "submit": "Crear torneo",
+    "submitting": "Creando…",
+    "cancel": "Cancelar"
+  },
+  "sport": {
+    "padel": "Pádel",
+    "futbol7": "Fútbol 7",
+    "baloncesto": "Baloncesto",
+    "ajedrez": "Ajedrez"
+  },
+  "format": {
+    "round_robin": "Liguilla",
+    "round_robinHint": "Todos contra todos. Si hay tiempo y no sois muchos.",
+    "single_elim": "Eliminatoria",
+    "single_elimHint": "Quien pierde, fuera. El formato más rápido.",
+    "double_elim": "Doble eliminación",
+    "double_elimHint": "Nadie se va a casa por perder un partido. Necesita más pistas.",
+    "groups_knockout": "Grupos y eliminatoria",
+    "groups_knockoutHint": "Grupos primero y luego cruces. Lo normal en un torneo de un día.",
+    "swiss": "Suizo",
+    "swissHint": "Cada ronda te empareja con alguien de tu nivel. Para mucha gente y poco tiempo."
+  },
+  "timezone": {
+    "madrid": "Península y Baleares",
+    "canary": "Canarias"
   },
   "nav": {
     "tournaments": "Torneos",
@@ -16,6 +60,9 @@
     "loadFailed": {
       "title": "No hemos podido cargar tus torneos",
       "body": "Ha fallado la conexión con el servidor. Vuelve a intentarlo."
-    }
+    },
+    "nameRequired": "Ponle un nombre al torneo.",
+    "createFailed": "No hemos podido crear el torneo. Inténtalo de nuevo.",
+    "noClub": "Tu cuenta no tiene ningún club asociado. Escríbenos y lo arreglamos."
   }
 }
